@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import NewsItem from "./NewsItem";
 
 const NewBoard = () => {
     const [articles, setArticles] = useState([]);
@@ -13,7 +14,9 @@ const NewBoard = () => {
     return (
         <div>
             <h2 className="text-center">Latest <span className="badge bg-danger">News</span></h2>
-            {/* You may want to render the articles here */}
+            {articles.map((news,index)=>{
+                return <NewsItem key={index} title={news.title} description={news.description} src={news.urlToImage} url={news.url}/>
+            })}
         </div>
     );
 };
